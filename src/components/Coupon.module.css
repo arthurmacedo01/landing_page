@@ -1,0 +1,42 @@
+.coupon {
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  height: 100px;
+  animation: 300s fadeIn infinite, pulse 1s infinite;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  0% {
+    visibility: hidden;
+  }
+  5% {
+    visibility: hidden;
+  }
+  6% {
+    visibility: visible;
+  }
+  15% {
+    visibility: visible;
+  }
+  16% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}

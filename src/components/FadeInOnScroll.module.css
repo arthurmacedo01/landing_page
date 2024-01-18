@@ -1,0 +1,12 @@
+/* FadeInOnScroll.css */
+
+.fade_in {
+  opacity: 0;
+  transform: translateY(20px); /* Optional: Add a slight vertical transition */
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

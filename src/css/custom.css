@@ -1,0 +1,37 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the animation to the button */
+.animated {
+  animation: pulse 2s infinite;
+}
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with an opacity of 0 */
+  }
+  to {
+    opacity: 1; /* End with an opacity of 1 */
+  }
+}
+.fade-in {
+  opacity: 0; /* Start with an initial opacity of 0 */
+  animation: fadeIn 1.5s ease-in-out forwards; /* Use the fadeIn animation with a duration of 1.5 seconds */
+}
+
+.masthead-heading{
+  text-shadow:
+  0 0 1em rgb(167, 167, 181),
+  0 0 .22em rgb(73, 73, 79),
+  0 0 0.2em rgb(9, 255, 255);
+}
