@@ -284,7 +284,7 @@ function Ebook() {
                       className="animated btn btn-danger btn-xl text-uppercase"
                       onClick={() => {
                         scrollToTop();
-                        ReactPixel.track("AddToCart", data);
+                        ReactPixel.trackCustom("LearnMore", data);
                       }}
                     >
                       Saiba Mais
