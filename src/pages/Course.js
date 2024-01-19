@@ -85,10 +85,13 @@ function Course() {
       {/* Masthead */}
       <header className="masthead fade-in">
         <div className="container">
-          <div className="masthead-heading text-uppercase">
+          <h2 className="masthead-subheading">
+            Curso de automação e eletrônia
+          </h2>
+          <h1 className="masthead-heading text-uppercase">
             Internet das Coisas com ESP32
-          </div>
-          <div className="masthead-subheading">Da ideia à implementação!</div>
+          </h1>
+          <h2 className="masthead-subheading">Da ideia à implementação!</h2>
           <div className="portfolio-item">
             <a
               className="animated btn btn-primary btn-xl text-uppercase"
