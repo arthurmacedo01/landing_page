@@ -17,7 +17,7 @@ import { useCookies } from "react-cookie";
 
 function Ebook() {
   const [cookies] = useCookies();
-
+  const ebook_pixel = "387730897082505";
   var data = {};
   Object.keys(cookies).forEach(
     (cookieName) => (data[cookieName] = cookies[cookieName])
@@ -28,9 +28,9 @@ function Ebook() {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
     debug: false, // enable logs
   };
-  ReactPixel.init("387730897082505", null, options);
+  ReactPixel.init(ebook_pixel, null, options);
   ReactPixel.pageView(); // For tracking page view
-  ReactPixel.track("ViewContent", data);
+  ReactPixel.trackSingle(ebook_pixel, "ViewContent", data);
 
   var checkoutUrl = "https://pay.hotmart.com/I89735973R";
   const scrollToTop = () => {
@@ -114,7 +114,7 @@ function Ebook() {
               data-bs-toggle="modal"
               href="#checkout"
               onClick={() => {
-                ReactPixel.track("AddToCart", data);
+                ReactPixel.trackSingle(ebook_pixel, "AddToCart", data);
               }}
             >
               Comprar agora
@@ -253,7 +253,7 @@ function Ebook() {
                       data-bs-toggle="modal"
                       href="#checkout"
                       onClick={() => {
-                        ReactPixel.track("AddToCart", data);
+                        ReactPixel.trackSingle(ebook_pixel, "AddToCart", data);
                       }}
                     >
                       Comprar Agora
@@ -284,7 +284,11 @@ function Ebook() {
                       className="animated btn btn-danger btn-xl text-uppercase"
                       onClick={() => {
                         scrollToTop();
-                        ReactPixel.trackCustom("LearnMore", data);
+                        ReactPixel.trackSingleCustom(
+                          ebook_pixel,
+                          "LearnMore",
+                          data
+                        );
                       }}
                     >
                       Saiba Mais

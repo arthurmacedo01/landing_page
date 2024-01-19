@@ -17,6 +17,7 @@ import { useCookies } from "react-cookie";
 
 function Course() {
   const [cookies] = useCookies();
+  const course_pixel = "708655164529978";
 
   var data = {};
   Object.keys(cookies).forEach(
@@ -28,9 +29,9 @@ function Course() {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
     debug: false, // enable logs
   };
-  ReactPixel.init("708655164529978", null, options);
+  ReactPixel.init(course_pixel, null, options);
   ReactPixel.pageView(); // For tracking page view
-  ReactPixel.track("ViewContent", data);
+  ReactPixel.trackSingle(course_pixel, "ViewContent", data);
 
   const [discountState, disountSet] = useState("");
   var checkoutUrl = "https://pay.hotmart.com/Y88151795S?" + discountState;
@@ -118,7 +119,7 @@ function Course() {
               href="#checkout"
               onClick={() => {
                 disountSet("");
-                ReactPixel.track("AddToCart", data);
+                ReactPixel.trackSingle(course_pixel, "AddToCart", data);
               }}
             >
               Comprar agora
@@ -345,7 +346,7 @@ function Course() {
                   href="#checkout"
                   onClick={() => {
                     disountSet("");
-                    ReactPixel.track("AddToCart", data);
+                    ReactPixel.trackSingle(course_pixel, "AddToCart", data);
                   }}
                 >
                   Comprar Agora
