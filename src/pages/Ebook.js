@@ -1,3 +1,5 @@
+import ReactPixel from "react-facebook-pixel";
+
 import "../js/scripts.js";
 import "../css/styles.css";
 import "../css/custom.css";
@@ -13,6 +15,16 @@ import classes from "./Ebook.module.css";
 import { NavLink } from "react-router-dom";
 
 function Ebook() {
+  const options = {
+    autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+    debug: false, // enable logs
+  };
+  ReactPixel.init("387730897082505", null, options);
+  ReactPixel.pageView(); // For tracking page view
+  ReactPixel.track("ViewContent", {
+    contents: [{ id: "eBook", quantity: 1 }],
+  });
+
   var checkoutUrl = "https://pay.hotmart.com/I89735973R";
   const scrollToTop = () => {
     window.scrollTo({
@@ -94,6 +106,11 @@ function Ebook() {
               className="animated btn btn-primary btn-xl text-uppercase"
               data-bs-toggle="modal"
               href="#checkout"
+              onClick={() => {
+                ReactPixel.track("AddToCart", {
+                  contents: [{ id: "eBook", quantity: 1 }],
+                });
+              }}
             >
               Comprar agora
             </a>
@@ -230,6 +247,11 @@ function Ebook() {
                       className="animated btn btn-primary btn-xl text-uppercase"
                       data-bs-toggle="modal"
                       href="#checkout"
+                      onClick={() => {
+                        ReactPixel.track("AddToCart", {
+                          contents: [{ id: "eBook", quantity: 1 }],
+                        });
+                      }}
                     >
                       Comprar Agora
                     </a>
