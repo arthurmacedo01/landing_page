@@ -13,8 +13,16 @@ import FadeInOnScroll from "../components/FadeInOnScroll.js";
 import Coupon from "../components/Coupon.js";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 function Course() {
+  const [cookies] = useCookies();
+
+  var data = {};
+  Object.keys(cookies).forEach(
+    (cookieName) => (data[cookieName] = cookies[cookieName])
+  );
+  data.contents = [{ id: "course", quantity: 1 }];
 
   const options = {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
@@ -22,14 +30,11 @@ function Course() {
   };
   ReactPixel.init("708655164529978", null, options);
   ReactPixel.pageView(); // For tracking page view
-  ReactPixel.track("ViewContent", {
-    contents: [{ id: "course", quantity: 1 }],
-  });
-
+  ReactPixel.track("ViewContent", data);
 
   const [discountState, disountSet] = useState("");
   var checkoutUrl = "https://pay.hotmart.com/Y88151795S?" + discountState;
- 
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -113,6 +118,7 @@ function Course() {
               href="#checkout"
               onClick={() => {
                 disountSet("");
+                ReactPixel.track("AddToCart", data);
               }}
             >
               Comprar agora
@@ -339,6 +345,7 @@ function Course() {
                   href="#checkout"
                   onClick={() => {
                     disountSet("");
+                    ReactPixel.track("AddToCart", data);
                   }}
                 >
                   Comprar Agora

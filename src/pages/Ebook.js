@@ -13,17 +13,24 @@ import FadeInOnScroll from "../components/FadeInOnScroll.js";
 import ebook_cover from "../assets/img/ebook_cover.png";
 import classes from "./Ebook.module.css";
 import { NavLink } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 function Ebook() {
+  const [cookies] = useCookies();
+
+  var data = {};
+  Object.keys(cookies).forEach(
+    (cookieName) => (data[cookieName] = cookies[cookieName])
+  );
+  data.contents = [{ id: "eBook", quantity: 1 }];
+
   const options = {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
     debug: false, // enable logs
   };
   ReactPixel.init("387730897082505", null, options);
   ReactPixel.pageView(); // For tracking page view
-  ReactPixel.track("ViewContent", {
-    contents: [{ id: "eBook", quantity: 1 }],
-  });
+  ReactPixel.track("ViewContent", data);
 
   var checkoutUrl = "https://pay.hotmart.com/I89735973R";
   const scrollToTop = () => {
@@ -107,9 +114,7 @@ function Ebook() {
               data-bs-toggle="modal"
               href="#checkout"
               onClick={() => {
-                ReactPixel.track("AddToCart", {
-                  contents: [{ id: "eBook", quantity: 1 }],
-                });
+                ReactPixel.track("AddToCart", data);
               }}
             >
               Comprar agora
@@ -248,9 +253,7 @@ function Ebook() {
                       data-bs-toggle="modal"
                       href="#checkout"
                       onClick={() => {
-                        ReactPixel.track("AddToCart", {
-                          contents: [{ id: "eBook", quantity: 1 }],
-                        });
+                        ReactPixel.track("AddToCart", data);
                       }}
                     >
                       Comprar Agora
@@ -279,7 +282,10 @@ function Ebook() {
                     <NavLink
                       to="/"
                       className="animated btn btn-danger btn-xl text-uppercase"
-                      onClick={scrollToTop}
+                      onClick={() => {
+                        scrollToTop();
+                        ReactPixel.track("AddToCart", data);
+                      }}
                     >
                       Saiba Mais
                     </NavLink>
