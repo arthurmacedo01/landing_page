@@ -29,10 +29,10 @@ function Ebook() {
   Object.keys(cookies).forEach(
     (cookieName) => (data[cookieName] = cookies[cookieName])
   );
-  const placement = queryParameters.get("placement");
-  const campaing = queryParameters.get("campaing");
-  const adset = queryParameters.get("adset");
-  const ad = queryParameters.get("ad");
+  const placement_id = queryParameters.get("placement_id");
+  const campaing_id = queryParameters.get("campaing_id");
+  const adset_id = queryParameters.get("adset_id");
+  const ad_id = queryParameters.get("ad_id");
 
   data.contents = [
     { id: "eBook", quantity: 1, placement, campaing, adset, ad },
