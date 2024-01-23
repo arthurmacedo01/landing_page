@@ -26,18 +26,17 @@ function Ebook() {
   ReactPixel.pageView(); // For tracking page view
   const [cookies] = useCookies();
   const queryParameters = new URLSearchParams(window.location.search);
-  var data = {};
   Object.keys(cookies).forEach(
     (cookieName) => (data[cookieName] = cookies[cookieName])
   );
-  const placement_id = queryParameters.get("placement_id");
-  const campaing_id = queryParameters.get("campaing_id");
-  const adset_id = queryParameters.get("adset_id");
-  const ad_id = queryParameters.get("ad_id");
 
-  data.contents = [
-    { id: "eBook", quantity: 1, placement_id, campaing_id, adset_id, ad_id },
-  ];
+  var data = {
+    placement_id: queryParameters.get("placement_id"),
+    campaing_id: queryParameters.get("campaing_id"),
+    adset_id: queryParameters.get("adset_id"),
+    ad_id: queryParameters.get("ad_id"),
+  };
+  data.contents = [{ id: "eBook", quantity: 1 }];
 
   ReactPixel.trackSingle(ebook_pixel, "ViewContent", data);
 
