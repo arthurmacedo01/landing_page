@@ -35,7 +35,7 @@ function Ebook() {
   const ad_id = queryParameters.get("ad_id");
 
   data.contents = [
-    { id: "eBook", quantity: 1, placement, campaing, adset, ad },
+    { id: "eBook", quantity: 1, placement_id, campaing_id, adset_id, ad_id },
   ];
 
   ReactPixel.trackSingle(ebook_pixel, "ViewContent", data);

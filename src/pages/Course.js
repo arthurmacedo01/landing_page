@@ -35,7 +35,7 @@ function Course() {
   const ad_id = queryParameters.get("ad_id");
 
   data.contents = [
-    { id: "course", quantity: 1, placement, campaing, adset, ad },
+    { id: "course", quantity_id: 1, placement_id, campaing_id, adset_id, ad_id },
   ];
 
   ReactPixel.trackSingle(course_pixel, "ViewContent", data);
