@@ -16,21 +16,28 @@ import { NavLink } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 function Course() {
-  const [cookies] = useCookies();
   const course_pixel = "708655164529978";
-
-  var data = {};
-  Object.keys(cookies).forEach(
-    (cookieName) => (data[cookieName] = cookies[cookieName])
-  );
-  data.contents = [{ id: "course", quantity: 1 }];
-
   const options = {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
     debug: false, // enable logs
   };
   ReactPixel.init(course_pixel, null, options);
   ReactPixel.pageView(); // For tracking page view
+  const [cookies] = useCookies();
+  const queryParameters = new URLSearchParams(window.location.search);
+  var data = {};
+  Object.keys(cookies).forEach(
+    (cookieName) => (data[cookieName] = cookies[cookieName])
+  );
+  const placement = queryParameters.get("placement");
+  const campaing = queryParameters.get("campaing");
+  const adset = queryParameters.get("adset");
+  const ad = queryParameters.get("ad");
+  
+  data.contents = [
+    { id: "course", quantity: 1, placement, campaing, adset, ad },
+  ];
+
   ReactPixel.trackSingle(course_pixel, "ViewContent", data);
 
   const [discountState, disountSet] = useState("");
