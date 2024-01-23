@@ -8,6 +8,7 @@ import arthurImage from "../assets/img/team/arthur.png";
 import garantiaImage from "../assets/img/garantia.png";
 import closeImage from "../assets/img/close-icon.svg";
 import devicesImage from "../assets/img/dispositivos.png";
+import promoImg from "../assets/img/promo.png";
 import FadeInOnScroll from "../components/FadeInOnScroll.js";
 
 import ebook_cover from "../assets/img/ebook_cover.png";
@@ -247,6 +248,7 @@ function Ebook() {
                 <div className="card-body card bg-dark">
                   <div>
                     <img src={devicesImage} alt="devices"></img>
+                    <img className="w-25" src={promoImg} alt="promo" />
                     <span className="d-inline-block h5 mx-3">
                       Aproveite o conteúdo em qualquer dispositivo.
                     </span>
