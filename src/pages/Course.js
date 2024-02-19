@@ -17,6 +17,8 @@ import { useCookies } from "react-cookie";
 
 function Course() {
   const course_pixel = "708655164529978";
+  const [discountState, disountSet] = useState("");
+  var checkoutUrl = "https://pay.hotmart.com/Y88151795S?" + discountState;
   const options = {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
     debug: false, // enable logs
@@ -30,7 +32,7 @@ function Course() {
     (cookieName) => (data[cookieName] = cookies[cookieName])
   );
 
-  var data = {
+  data = {
     placement_id: queryParameters.get("placement_id"),
     campaing_id: queryParameters.get("campaing_id"),
     adset_id: queryParameters.get("adset_id"),
@@ -40,8 +42,6 @@ function Course() {
 
   ReactPixel.trackSingle(course_pixel, "ViewContent", data);
 
-  const [discountState, disountSet] = useState("");
-  var checkoutUrl = "https://pay.hotmart.com/Y88151795S?" + discountState;
 
   const scrollToTop = () => {
     window.scrollTo({

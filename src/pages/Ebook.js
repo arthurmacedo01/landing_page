@@ -14,7 +14,6 @@ import FadeInOnScroll from "../components/FadeInOnScroll.js";
 import ebook_cover from "../assets/img/ebook_cover.png";
 import classes from "./Ebook.module.css";
 import { NavLink } from "react-router-dom";
-import { useCookies } from "react-cookie";
 
 function Ebook() {
   const ebook_pixel = "387730897082505";
@@ -24,11 +23,7 @@ function Ebook() {
   };
   ReactPixel.init(ebook_pixel, null, options);
   ReactPixel.pageView(); // For tracking page view
-  const [cookies] = useCookies();
   const queryParameters = new URLSearchParams(window.location.search);
-  Object.keys(cookies).forEach(
-    (cookieName) => (data[cookieName] = cookies[cookieName])
-  );
 
   var data = {
     placement_id: queryParameters.get("placement_id"),
