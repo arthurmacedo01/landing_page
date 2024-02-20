@@ -22,15 +22,15 @@ function Capture() {
   ReactPixel.pageView(); // For tracking page view
   const queryParameters = new URLSearchParams(window.location.search);
 
-  var data = {
+  var pixel_data = {
     placement_id: queryParameters.get("placement_id"),
     campaing_id: queryParameters.get("campaing_id"),
     adset_id: queryParameters.get("adset_id"),
     ad_id: queryParameters.get("ad_id"),
   };
-  data.contents = [{ id: "eBook", quantity: 1 }];
+  pixel_data.contents = [{ id: "eBook", quantity: 1 }];
 
-  ReactPixel.trackSingle(ebook_pixel, "ViewContent", data);
+  ReactPixel.trackSingle(ebook_pixel, "ViewContent", pixel_data);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -68,11 +68,10 @@ function Capture() {
         }
         return response.json();
       }) // Parse the JSON response
-      .then((data) => {
-        console.log("Success:", data);
-
+      .then((data) => {        
         // Inicia o download
         window.open(downloadUrl, "_blank");
+        ReactPixel.trackSingle(ebook_pixel, "Purchase", data);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -106,7 +105,7 @@ function Capture() {
               data-bs-toggle="modal"
               href="#checkout"
               onClick={() => {
-                ReactPixel.trackSingle(ebook_pixel, "AddToCart", data);
+                ReactPixel.trackSingle(ebook_pixel, "AddToCart", pixel_data);
               }}
             >
               Baixar agora
