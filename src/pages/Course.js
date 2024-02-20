@@ -76,7 +76,7 @@ function Course() {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
               <li className="nav-item">
-                <NavLink to="ebook" className="nav-link" onClick={scrollToTop}>
+                <NavLink to="free" className="nav-link" onClick={scrollToTop}>
                   eBook
                 </NavLink>
               </li>
@@ -295,8 +295,8 @@ function Course() {
                 Arthur Macêdo é um instrutor qualificado que liderará o nosso
                 curso. Com uma sólida formação, incluindo graduação em
                 engenharia mecatrônica na UnB e mestrado em controle e automação
-                na UFMA, ele possui mais de 7 anos de experiência exercendo o
-                cargo como engenheiro eletrônico na Força Aérea Brasileira, com
+                na UFMA, doutorando no ITA, ele possui mais de 7 anos de experiência 
+                como engenheiro eletrônico na Força Aérea Brasileira, com
                 foco na área aeroespacial. Sua paixão é transformar ideias em
                 realidade, e ele tem a expertise necessária para concretizar
                 projetos desafiadores que envolvem eletrônica e programação.
