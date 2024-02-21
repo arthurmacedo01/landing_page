@@ -34,7 +34,7 @@ function Capture() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
+  const [phone, setPhone] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle the form submission logic here
@@ -50,6 +50,7 @@ function Capture() {
     const data = {
       name,
       email,
+      phone,
       timestamp: Date.now(),
     };
 
@@ -68,7 +69,7 @@ function Capture() {
         }
         return response.json();
       }) // Parse the JSON response
-      .then((data) => {        
+      .then((data) => {
         // Inicia o download
         window.open(downloadUrl, "_blank");
         ReactPixel.trackSingle(ebook_pixel, "Purchase", data);
@@ -220,6 +221,20 @@ function Capture() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Digite seu melhor email"
+                />
+              </div>
+              {/* Email field */}
+              <div className="mb-3 px-3">
+                <label htmlFor="userPhone" className="form-label">
+                  Telefone (Opcional)
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="userPhone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Telefone com DDD"
                 />
               </div>
               {/* Submit button */}
