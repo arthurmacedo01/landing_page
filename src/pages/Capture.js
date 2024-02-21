@@ -69,7 +69,7 @@ function Capture() {
         }
         return response.json();
       }) // Parse the JSON response
-      .then((data) => {
+      .then((data_received) => {
         // Inicia o download
         window.open(downloadUrl, "_blank");
         ReactPixel.trackSingle(ebook_pixel, "Purchase", data);
