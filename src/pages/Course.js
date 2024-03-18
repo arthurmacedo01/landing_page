@@ -1,5 +1,5 @@
 import ReactPixel from "react-facebook-pixel";
-
+import classes from "./Course.module.css";
 import "../js/scripts.js";
 import "../css/styles.css";
 import "../css/custom.css";
@@ -18,6 +18,7 @@ import { useCookies } from "react-cookie";
 function Course() {
   const course_pixel = "708655164529978";
   const [discountState, disountSet] = useState("");
+  const videoURL = "https://www.youtube.com/embed/j_9SflUnNDw";
   var checkoutUrl = "https://pay.hotmart.com/Y88151795S?" + discountState;
   const options = {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
@@ -41,7 +42,6 @@ function Course() {
   data.contents = [{ id: "course", quantity: 1 }];
 
   ReactPixel.trackSingle(course_pixel, "ViewContent", data);
-
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -144,10 +144,10 @@ function Course() {
               </h2>
             </div>
             <div className="text-center">
-              <div className="max-width: 100%">
+              <div className={classes.video_wrapper}>
                 <iframe
-                  height="500"
-                  src="https://www.youtube.com/embed/F3CuFsXYNmY"
+                  className={classes.video_iframe}
+                  src={videoURL}
                   title="Video Curso Internet das Coisas com ESP32"
                   frameBorder="0"
                   allowFullScreen
@@ -295,13 +295,13 @@ function Course() {
                 Arthur Macêdo é um instrutor qualificado que liderará o nosso
                 curso. Com uma sólida formação, incluindo graduação em
                 engenharia mecatrônica na UnB e mestrado em controle e automação
-                na UFMA, doutorando no ITA, ele possui mais de 7 anos de experiência 
-                como engenheiro eletrônico na Força Aérea Brasileira, com
-                foco na área aeroespacial. Sua paixão é transformar ideias em
-                realidade, e ele tem a expertise necessária para concretizar
-                projetos desafiadores que envolvem eletrônica e programação.
-                Arthur Macêdo irá orientá-lo e ajudá-lo a atingir seus objetivos
-                neste curso.
+                na UFMA, doutorando no ITA, ele possui mais de 7 anos de
+                experiência como engenheiro eletrônico na Força Aérea
+                Brasileira, com foco na área aeroespacial. Sua paixão é
+                transformar ideias em realidade, e ele tem a expertise
+                necessária para concretizar projetos desafiadores que envolvem
+                eletrônica e programação. Arthur Macêdo irá orientá-lo e
+                ajudá-lo a atingir seus objetivos neste curso.
               </p>
             </div>
           </div>
