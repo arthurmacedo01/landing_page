@@ -14,6 +14,7 @@ import Coupon from "../components/Coupon.js";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import WhatsAppLink from "../components/WhatsAppLink.js";
 
 function Course() {
   const course_pixel = "708655164529978";
@@ -56,6 +57,7 @@ function Course() {
         className="navbar navbar-expand-lg navbar-dark fixed-top"
         id="mainNav"
       >
+        <WhatsAppLink />
         <Coupon disountSet={disountSet} />
         <div className="container">
           <a className="navbar-brand" href="#page-top">
