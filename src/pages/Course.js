@@ -15,11 +15,12 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import WhatsAppLink from "../components/WhatsAppLink.js";
+import Accordion from "../components/Accordion.js";
 
 function Course() {
   const course_pixel = "708655164529978";
   const [discountState, disountSet] = useState("");
-  const videoURL = "https://www.youtube.com/embed/j_9SflUnNDw";
+  const videoURL = "https://www.youtube.com/embed/R8XDKeczBVg";
   var checkoutUrl = "https://pay.hotmart.com/Y88151795S?" + discountState;
   const options = {
     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
@@ -271,6 +272,8 @@ function Course() {
                 </p>
               </div>
             </div>
+            <Accordion />
+
           </div>
         </section>
       </FadeInOnScroll>
@@ -365,8 +368,8 @@ function Course() {
             </div>
           </div>
         </section>
-      </FadeInOnScroll>
-      {/* FAQ */}
+      </FadeInOnScroll>    
+      {/* Price */}
       <FadeInOnScroll>
         <section className="page-section" id="faq">
           <div className="text-center">
