@@ -6,12 +6,34 @@ import classes from "./AutoPlayVideo.module.css";
 function AutoPlayVideo({ videoURL }) {
   const [isMuted, setIsMuted] = useState(true);
   const [player, setPlayer] = useState(null);
+  const [progress, setProgress] = useState(0); // New state for tracking progress
 
   const onReady = (event) => {
-    // Access to the player in all event handlers via event.target
     setPlayer(event.target);
     event.target.mute();
     event.target.playVideo();
+  };
+
+  const onStateChange = (event) => {
+    if (event.data === YouTube.PlayerState.PLAYING) {
+      updateProgress();
+    }
+  };
+
+  const updateProgress = () => {
+    if (!player) return;
+
+    const duration = player.getDuration();
+    const currentTime = player.getCurrentTime();
+    const x = currentTime / duration;
+    const y = 1 - 2.72**(-5*x);
+    const progress = y * 100;
+    setProgress(progress);
+
+    // If the video is playing, continue updating the progress
+    if (player.getPlayerState() === YouTube.PlayerState.PLAYING) {
+      setTimeout(updateProgress, 1000); // Update progress every second
+    }
   };
 
   const toggleMute = () => {
@@ -31,13 +53,12 @@ function AutoPlayVideo({ videoURL }) {
     height: "390",
     width: "640",
     playerVars: {
-      // YouTube's IFrame player can take a number of parameters.
-      autoplay: 1, // Auto-play the video on load
-      controls: 0, // Do not show video controls
+      autoplay: 1,
+      controls: 0,
       disablekb: 1,
-      loop: 1, // Loop the video
-      modestbranding: 1, // Hide the YouTube logo on the control bar
-      rel: 0, // Do not show related videos after the video ends
+      loop: 1,
+      modestbranding: 1,
+      rel: 0,
       showinfo: 0,
     },
   };
@@ -48,6 +69,7 @@ function AutoPlayVideo({ videoURL }) {
         videoId={extractYouTubeID(videoURL)}
         opts={opts}
         onReady={onReady}
+        onStateChange={onStateChange}
         iframeClassName={classes.video_iframe}
       />
       <div className={classes.overlay}>
@@ -60,12 +82,17 @@ function AutoPlayVideo({ videoURL }) {
           />
         )}
       </div>
+      <div className={classes.progressBarContainer}>
+        <div
+          className={classes.progressBar}
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div>
     </div>
   );
 }
 
 function extractYouTubeID(url) {
-  // Extract the YouTube ID from the URL
   const regExp =
     /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   const match = url.match(regExp);
