@@ -154,6 +154,7 @@ const AccordionItem = ({ sectionNumber, title, items }) => (
 const Accordion = () => {
   return (
     <div className="accordion" id="accordionExample">
+      <h2 className="text-center">20h de Conteúdo em Vídeo</h2>
       {sections.map((section, index) => (
         <AccordionItem
           key={index}

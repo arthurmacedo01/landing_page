@@ -8544,6 +8544,10 @@ fieldset:disabled .btn {
   --bs-bg-opacity: 0.75;
 }
 
+.bg-opacity-95 {
+  --bs-bg-opacity: 0.95;
+}
+
 .bg-opacity-100 {
   --bs-bg-opacity: 1;
 }
@@ -11303,11 +11307,6 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/banner.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;

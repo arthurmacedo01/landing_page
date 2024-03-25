@@ -2,7 +2,7 @@ import ReactPixel from "react-facebook-pixel";
 import "../js/scripts.js";
 import "../css/styles.css";
 import "../css/custom.css";
-
+import classes from "./Course.module.css";
 import arthurImage from "../assets/img/team/arthur.png";
 import garantiaImage from "../assets/img/garantia.png";
 import closeImage from "../assets/img/close-icon.svg";
@@ -54,7 +54,7 @@ function Course() {
   };
 
   return (
-    <div className="App" id="page-top">
+    <div className={classes.App} id="page-top">
       <nav
         className="navbar navbar-expand-lg navbar-dark fixed-top"
         id="mainNav"
@@ -139,7 +139,7 @@ function Course() {
       </header>
       {/* Sobre */}
       <FadeInOnScroll>
-        <section className="page-section bg-light" id="about">
+        <section className="page-section bg-light bg-opacity-95" id="about">
           <div className="container">
             <div className="mb-5 text-center">
               <h2 className="section-heading text-uppercase">
@@ -161,7 +161,7 @@ function Course() {
         </section>
       </FadeInOnScroll>
       {/* Módulos */}
-      <section className="page-section" id="modules">
+      <section className="page-section bg-white bg-opacity-95" id="modules">
         <div className="container">
           <FadeInOnScroll>
             <div className="mb-5 text-center">
@@ -267,14 +267,18 @@ function Course() {
               </div>
             </div>
           </FadeInOnScroll>
-          <FadeInOnScroll>
-            <Accordion />
-          </FadeInOnScroll>
         </div>
       </section>
+      <FadeInOnScroll>
+        <section className="page-section bg-light bg-opacity-95">
+          <div className="container">
+            <Accordion />
+          </div>
+        </section>
+      </FadeInOnScroll>
       {/* Team */}
       <FadeInOnScroll>
-        <section className="page-section bg-light" id="team">
+        <section className="page-section bg-white bg-opacity-95" id="team">
           <div className="container">
             <div className="text-center">
               <h2 className="section-heading text-uppercase">Instrutor</h2>
@@ -308,12 +312,9 @@ function Course() {
       </FadeInOnScroll>
       {/* Garantia */}
       <FadeInOnScroll>
-        <section className="page-section" id="team">
+        <section className="page-section bg-light bg-opacity-95" id="team">
           <div className="container text-center">
-            <img
-              src={garantiaImage}
-              alt="garantia"
-            />
+            <img src={garantiaImage} alt="garantia" />
             <div className="row my-3">
               <h2>
                 Garantia de <strong>7 dias</strong>
@@ -328,7 +329,7 @@ function Course() {
       </FadeInOnScroll>
       {/* Price */}
       <FadeInOnScroll>
-        <section className="page-section bg-light" id="price">
+        <section className="page-section bg-white bg-opacity-95" id="price">
           <div className="col-md-5 container text-white text-center">
             <div className="card-body card bg-dark ">
               <div></div>
@@ -364,7 +365,7 @@ function Course() {
       </FadeInOnScroll>
       {/* Price */}
       <FadeInOnScroll>
-        <section className="page-section" id="faq">
+        <section className="page-section bg-light bg-opacity-95" id="faq">
           <div className="text-center">
             <h2 className="section-heading text-uppercase">
               Perguntas Frequentes
@@ -545,7 +546,7 @@ function Course() {
       {/* Footer*/}
       <footer className="footer py-4">
         <div className="container">
-          <div className="text-center">
+          <div className="text-center text-white">
             Copyright &copy; Todos os direitos reservados.
           </div>
         </div>
