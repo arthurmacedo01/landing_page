@@ -1,5 +1,4 @@
 import ReactPixel from "react-facebook-pixel";
-import classes from "./Course.module.css";
 import "../js/scripts.js";
 import "../css/styles.css";
 import "../css/custom.css";
@@ -16,6 +15,7 @@ import { NavLink } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import WhatsAppLink from "../components/WhatsAppLink.js";
 import Accordion from "../components/Accordion.js";
+import AutoPlayVideo from "../components/AutoPlayVideo.js";
 
 function Course() {
   const course_pixel = "708655164529978";
@@ -147,15 +147,7 @@ function Course() {
               </h2>
             </div>
             <div className="text-center">
-              <div className={classes.video_wrapper}>
-                <iframe
-                  className={classes.video_iframe}
-                  src={videoURL}
-                  title="Video Curso Internet das Coisas com ESP32"
-                  frameBorder="0"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              <AutoPlayVideo videoURL={videoURL} />
               <p className="my-3 text-muted">
                 Com o curso Internet das Coisas com ESP32, aprenda a programar o
                 ESP32 para fazer projetos se comunicando pela internet e atuando
@@ -169,12 +161,14 @@ function Course() {
         </section>
       </FadeInOnScroll>
       {/* Módulos */}
-      <FadeInOnScroll>
-        <section className="page-section" id="modules">
-          <div className="container">
+      <section className="page-section" id="modules">
+        <div className="container">
+          <FadeInOnScroll>
             <div className="mb-5 text-center">
               <h2 className="section-heading text-uppercase">Módulos</h2>
             </div>
+          </FadeInOnScroll>
+          <FadeInOnScroll>
             <div className="row text-center">
               <div className="col-md-4">
                 <span className="fa-stack fa-4x">
@@ -272,11 +266,12 @@ function Course() {
                 </p>
               </div>
             </div>
+          </FadeInOnScroll>
+          <FadeInOnScroll>
             <Accordion />
-
-          </div>
-        </section>
-      </FadeInOnScroll>
+          </FadeInOnScroll>
+        </div>
+      </section>
       {/* Team */}
       <FadeInOnScroll>
         <section className="page-section bg-light" id="team">
@@ -368,7 +363,7 @@ function Course() {
             </div>
           </div>
         </section>
-      </FadeInOnScroll>    
+      </FadeInOnScroll>
       {/* Price */}
       <FadeInOnScroll>
         <section className="page-section" id="faq">
