@@ -8,6 +8,7 @@ import garantiaImage from "../assets/img/garantia.png";
 import closeImage from "../assets/img/close-icon.svg";
 import devicesImage from "../assets/img/dispositivos.png";
 import esp32Image from "../assets/img/esp32.png";
+import esp32ChipImage from "../assets/img/esp32_chip.png";
 import FadeInOnScroll from "../components/FadeInOnScroll.js";
 import Coupon from "../components/Coupon.js";
 import { useState } from "react";
@@ -121,20 +122,19 @@ function Course() {
           <h1 className="masthead-heading text-uppercase">
             Internet das Coisas com ESP32
           </h1>
-          <h2 className="masthead-subheading">Da ideia à implementação!</h2>
-          <div className="portfolio-item">
-            <a
-              className="animated btn btn-primary btn-xl text-uppercase"
-              data-bs-toggle="modal"
-              href="#checkout"
-              onClick={() => {
-                disountSet("");
-                ReactPixel.trackSingle(course_pixel, "AddToCart", data);
-              }}
-            >
-              Comprar agora
-            </a>
-          </div>
+          {/* <h2 className="masthead-subheading">Da ideia à implementação!</h2> */}
+          <AutoPlayVideo videoURL={videoURL} />
+          <a
+            className="animated btn btn-primary btn-xl text-uppercase mt-4"
+            data-bs-toggle="modal"
+            href="#checkout"
+            onClick={() => {
+              disountSet("");
+              ReactPixel.trackSingle(course_pixel, "AddToCart", data);
+            }}
+          >
+            Comprar agora
+          </a>
         </div>
       </header>
       {/* Sobre */}
@@ -147,7 +147,7 @@ function Course() {
               </h2>
             </div>
             <div className="text-center">
-              <AutoPlayVideo videoURL={videoURL} />
+              <img src={esp32ChipImage} alt="esp32" />
               <p className="my-3 text-muted">
                 Com o curso Internet das Coisas com ESP32, aprenda a programar o
                 ESP32 para fazer projetos se comunicando pela internet e atuando
@@ -282,14 +282,13 @@ function Course() {
 
             <div className="team-member">
               <img
-                className="mx-auto rounded-circle"
+                className="rounded-circle"
                 src={arthurImage}
                 alt="instructor"
                 style={{
                   objectFit: "contain",
                 }}
               />
-
               <h4>Arthur Macêdo</h4>
               <p className="text-muted">
                 Arthur Macêdo é um instrutor qualificado que liderará o nosso
@@ -312,7 +311,6 @@ function Course() {
         <section className="page-section" id="team">
           <div className="container text-center">
             <img
-              className="mx-auto rounded-circle"
               src={garantiaImage}
               alt="garantia"
             />
