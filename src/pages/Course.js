@@ -12,7 +12,7 @@ import esp32ChipImage from "../assets/img/esp32_chip.png";
 import FadeInOnScroll from "../components/FadeInOnScroll.js";
 import Coupon from "../components/Coupon.js";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import WhatsAppLink from "../components/WhatsAppLink.js";
 import Accordion from "../components/Accordion.js";
@@ -45,6 +45,7 @@ function Course() {
   data.contents = [{ id: "course", quantity: 1 }];
 
   ReactPixel.trackSingle(course_pixel, "ViewContent", data);
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -131,6 +132,7 @@ function Course() {
             onClick={() => {
               disountSet("");
               ReactPixel.trackSingle(course_pixel, "AddToCart", data);
+              navigate("/course");
             }}
           >
             Comprar agora

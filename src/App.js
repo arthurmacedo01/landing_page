@@ -12,6 +12,7 @@ function App() {
       errorElement: <ErrorPage />,
       children: [
         { index: true, element: <Course /> },
+        { path: "course", element: <Course /> },
         { path: "ebook", element: <Ebook /> },
         { path: "free", element: <Capture /> },
       ],
