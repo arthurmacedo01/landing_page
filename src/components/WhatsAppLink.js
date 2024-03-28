@@ -4,7 +4,7 @@ import classes from "./WhatsAppLink.module.css"
 
 function WhatsAppLink() {
   const phoneNumber = "+5512992599007"; // Your phone number here
-  const message = encodeURIComponent("Olá, interesse no curso Internet das Coisas com ESP32!"); // Your pre-filled message
+  const message = encodeURIComponent("Olá, tenho interesse no curso Internet das Coisas com ESP32!"); // Your pre-filled message
 
   return (
     <div className={classes.whatsappIcon}>
