@@ -17,6 +17,7 @@ import { useCookies } from "react-cookie";
 import WhatsAppLink from "../components/WhatsAppLink.js";
 import Accordion from "../components/Accordion.js";
 import AutoPlayVideo from "../components/AutoPlayVideo.js";
+import YTVideo from "../components/YTVideo.js";
 
 function Course() {
   const course_pixel = "708655164529978";
@@ -542,6 +543,20 @@ function Course() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+      </FadeInOnScroll>
+      {/* Free Videos */}
+      <FadeInOnScroll>
+        <section className="page-section bg-white bg-opacity-95" id="faq">
+          <div className="text-center">
+            <h2 className="section-heading text-uppercase">
+              Aulas Iniciais Demonstração
+            </h2>
+          </div>
+          <div className="container d-flex justify-content-around">
+            <YTVideo videoID="zCacjwJRibg"/>
+            <YTVideo videoID="-uB9DQxJiyc"/>
           </div>
         </section>
       </FadeInOnScroll>
