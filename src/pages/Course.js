@@ -119,7 +119,7 @@ function Course() {
       <header className="masthead fade-in">
         <div className="container">
           <h2 className="masthead-subheading">
-            Curso de automação e eletrônia
+            Curso de automação e eletrônica
           </h2>
           <h1 className="masthead-heading text-uppercase">
             Internet das Coisas com ESP32

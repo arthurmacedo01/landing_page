@@ -72,7 +72,7 @@ function Capture() {
       .then((data_received) => {
         // Inicia o download
         window.open(downloadUrl, "_blank");
-        ReactPixel.trackSingle(ebook_pixel, "Purchase", data);
+        // ReactPixel.trackSingle(ebook_pixel, "Purchase", data);
       })
       .catch((error) => {
         console.error("Error:", error);

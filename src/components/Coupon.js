@@ -11,7 +11,7 @@ function Coupon({ disountSet }) {
         data-bs-toggle="modal"
         href="#checkout"
         onClick={() => {
-          disountSet("offDiscount=50DEJUNHO");
+          disountSet("offDiscount=50DEAGOSTO");
         }}
       >
         <img src={couponImg} height="100" alt="coupon" />
