@@ -10,10 +10,12 @@
 
 @keyframes fadeIn {
   0% {
-    visibility: hidden;
+    /* visibility: hidden; */
+    visibility: visible;
   }
   5% {
-    visibility: hidden;
+    /* visibility: hidden; */
+    visibility: visible;
   }
   6% {
     visibility: visible;

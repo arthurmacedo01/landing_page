@@ -554,7 +554,7 @@ function Course() {
               Aulas Iniciais Demonstração
             </h2>
           </div>
-          <div className="container d-flex justify-content-around">
+          <div className="container d-flex justify-content-around flex-wrap">
             <YTVideo videoID="zCacjwJRibg"/>
             <YTVideo videoID="-uB9DQxJiyc"/>
           </div>
